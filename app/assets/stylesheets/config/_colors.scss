@@ -1,10 +1,47 @@
-// Define variables for your color scheme
+// Define variables for your color scheme - Dark Theme
 
-// For example:
-$red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+// Primary colors
+$primary: #6C63FF;
+$secondary: #00D4FF;
+$accent: #FF6B6B;
+
+// Background colors
+$dark-bg: #0D0D0D;
+$card-bg: #1A1A1A;
+$surface: #242424;
+
+// Text colors
+$text-primary: #FFFFFF;
+$text-secondary: #B3B3B3;
+$text-muted: #666666;
+
+// Status colors
+$success: #00C851;
+$warning: #FFBB33;
+$danger: #FF4444;
+
+// Legacy colors (for compatibility)
+$red: #FF4444;
+$blue: #6C63FF;
+$yellow: #FFBB33;
+$orange: #FF8800;
+$green: #00C851;
+$gray: #333333;
+$light-gray: #1A1A1A;
+
+// Import Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+// Define fonts for body and headers
+$body-font: "Inter", "Helvetica", "sans-serif";
+$headers-font: "Inter", "Helvetica", "sans-serif";
+
+// To use a font file (.woff) uncomment following lines
+// @font-face {
+//   font-family: "Font Name";
+//   src: font-url('FontFile.eot');
+//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
+//        font-url('FontFile.woff') format('woff'),
+//        font-url('FontFile.ttf') format('truetype')
+// }
+// $my-font: "Font Name";

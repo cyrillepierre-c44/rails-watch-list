@@ -1,0 +1,56 @@
+<div class="page-header fade-in">
+  <h1>📚 Mes Listes</h1>
+  <p>Découvrez et organisez vos films préférés</p>
+</div>
+
+<div class="row g-4">
+  <% @lists.each_with_index do |list, index| %>
+    <div class="col-md-6 col-lg-4 fade-in" style="animation-delay: <%= index * 0.1 %>s;">
+      <%= link_to list_path(list), class: "list-card text-decoration-none" do %>
+        <div class="list-card-content">
+          <div class="list-card-icon">
+            <%= list.name == "Action" ? "🎬" :
+                list.name == "Comedy" ? "😂" :
+                list.name == "Drama" ? "🎭" :
+                list.name == "Horror" ? "👻" :
+                list.name == "Sci-Fi" ? "🚀" :
+                list.name == "Romance" ? "❤️" : "📋" %>
+          </div>
+          <h3 class="list-card-title"><%= list.name %></h3>
+          <p class="list-card-count">
+            <span><%= list.bookmarks.count %></span> film<%= "s" if list.bookmarks.count != 1 %>
+          </p>
+        </div>
+        <div class="list-card-overlay">
+          <span class="btn btn-light btn-sm">Voir la liste</span>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <!-- New List Card -->
+  <div class="col-md-6 col-lg-4 fade-in" style="animation-delay: <%= @lists.count * 0.1 %>s;">
+    <%= link_to new_list_path, class: "list-card text-decoration-none" do %>
+      <div class="list-card-content">
+        <div class="list-card-icon" style="background: linear-gradient(135deg, #00D4FF, #6C63FF); -webkit-background-clip: text;">
+          ➕
+        </div>
+        <h3 class="list-card-title">Nouvelle Liste</h3>
+        <p class="list-card-count">Créez votre propre liste</p>
+      </div>
+      <div class="list-card-overlay">
+        <span class="btn btn-light btn-sm">Créer</span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- Empty State -->
+<% if @lists.empty? %>
+  <div class="empty-card fade-in">
+    <i class="fas fa-film"></i>
+    <h3>Aucune liste pour le moment</h3>
+    <p>Commencez par créer votre première liste de films !</p>
+    <%= link_to "Créer une liste", new_list_path, class: "btn btn-primary mt-3" %>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="glass-card p-4 fade-in">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-2">🎬 Ajouter un Film</h1>
+        <p class="text-secondary-custom">Ajoutez un film à "<%= @list.name %>"</p>
+      </div>
+
+      <% if @bookmark.errors.any? %>
+        <div class="alert alert-danger alert-dismissible fade show py-2" role="alert">
+          <i class="fas fa-exclamation-circle me-2"></i>
+          <%= @bookmark.errors.full_messages.join(", ") %>
+        </div>
+      <% end %>
+
+      <%= simple_form_for [@list, @bookmark], local: true do |f| %>
+        <div class="mb-4">
+          <%= f.label :movie_id, "Sélectionner un film", class: "form-label" %>
+          <%= f.collection_select :movie_id,
+              Movie.all.order(:title),
+              :id,
+              :title,
+              { prompt: "Choisir un film..." },
+              class: "form-select",
+              required: true %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :comment, "Votre commentaire", class: "form-label" %>
+          <%= f.text_area :comment,
+              class: "form-control",
+              rows: 3,
+              placeholder: "Pourquoi recommandez-vous ce film ?" %>
+        </div>
+
+        <div class="d-grid gap-2">
+          <%= f.submit "Ajouter à la liste", class: "btn btn-primary" %>
+          <%= link_to "Annuler", list_path(@list), class: "btn btn-outline-light" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

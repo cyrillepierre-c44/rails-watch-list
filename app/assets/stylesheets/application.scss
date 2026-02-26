@@ -10,3 +10,206 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// ===========================================
+// GLOBAL DARK THEME STYLES
+// ===========================================
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: $dark-bg !important;
+  color: $text-primary;
+  font-family: $body-font;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-primary;
+  font-family: $headers-font;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: lighten($primary, 15%);
+  }
+}
+
+// Card styles
+.card {
+  background-color: $card-bg;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(108, 99, 255, 0.3);
+  }
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+// Button styles
+.btn {
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, $primary, darken($primary, 10%));
+  border: none;
+
+  &:hover {
+    background: linear-gradient(135deg, lighten($primary, 5%), $primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4);
+  }
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: $text-primary;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+// Form styles
+.form-control, .form-select {
+  background-color: $surface;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $text-primary;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+
+  &:focus {
+    background-color: $surface;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+    color: $text-primary;
+  }
+
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+.form-label {
+  color: $text-secondary;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+// Container
+.container {
+  max-width: 1200px;
+}
+
+// Page header
+.page-header {
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: 1.1rem;
+  }
+}
+
+// Movie poster styles
+.movie-poster {
+  border-radius: 12px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Badge styles
+.badge {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.badge-rating {
+  background: linear-gradient(135deg, $primary, darken($primary, 10%));
+  color: white;
+}
+
+// Footer
+.footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem 0;
+  margin-top: 4rem;
+
+  p {
+    color: $text-muted;
+    margin: 0;
+  }
+}
+
+// Utility classes
+.text-muted-custom {
+  color: $text-muted !important;
+}
+
+.text-secondary-custom {
+  color: $text-secondary !important;
+}
+
+.bg-surface {
+  background-color: $surface;
+}
+
+.bg-card {
+  background-color: $card-bg;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+// Grid gap
+.g-4-custom {
+  gap: 1.5rem;
+}

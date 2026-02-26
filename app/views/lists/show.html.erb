@@ -1,0 +1,60 @@
+<div class="page-header fade-in">
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <div>
+      <%= link_to lists_path, class: "btn btn-outline-light btn-sm mb-3" do %>
+        <i class="fas fa-arrow-left me-1"></i> Retour aux listes
+      <% end %>
+      <h1>📁 <%= @list.name %></h1>
+      <p><%= @list.bookmarks.count %> film<%= "s" if @list.bookmarks.count != 1 %> dans cette liste</p>
+    </div>
+    <%= link_to new_list_bookmark_path(@list), class: "btn btn-primary" do %>
+      <i class="fas fa-plus me-1"></i> Ajouter un film
+    <% end %>
+  </div>
+</div>
+
+<!-- Movies Grid -->
+<% if @list.bookmarks.any? %>
+  <div class="row g-4">
+    <% @list.bookmarks.each_with_index do |bookmark, index| %>
+      <div class="col-md-6 col-lg-4 col-xl-3 fade-in" style="animation-delay: <%= index * 0.1 %>s;">
+        <div class="movie-card">
+          <div class="movie-card-poster-container">
+            <% if bookmark.movie.poster_url.present? %>
+              <%= image_tag bookmark.movie.poster_url, class: "movie-card-poster", alt: bookmark.movie.title %>
+            <% else %>
+              <div class="d-flex align-items-center justify-content-center bg-surface" style="height: 100%; min-height: 300px;">
+                <i class="fas fa-film fa-3x text-muted"></i>
+              </div>
+            <% end %>
+            <div class="movie-card-rating">
+              <i class="fas fa-star me-1"></i><%= bookmark.movie.rating %>
+            </div>
+          </div>
+          <div class="movie-card-body">
+            <h3 class="movie-card-title"><%= bookmark.movie.title %></h3>
+            <% if bookmark.comment.present? %>
+              <p class="movie-card-comment">"<%= bookmark.comment %>"</p>
+            <% end %>
+            <p class="text-muted-custom small mb-3"><%= truncate(bookmark.movie.overview, length: 80) if bookmark.movie.overview.present? %></p>
+            <div class="movie-card-actions">
+              <%= button_to list_bookmark_path(@list, bookmark), method: :delete, class: "btn btn-outline-danger btn-sm", data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce film de la liste ?" } do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <!-- Empty State -->
+  <div class="empty-card fade-in">
+    <i class="fas fa-popcorn"></i>
+    <h3>Cette liste est vide</h3>
+    <p>Ajoutez vos films préférés à cette liste !</p>
+    <%= link_to new_list_bookmark_path(@list), class: "btn btn-primary mt-3" do %>
+      <i class="fas fa-plus me-1"></i> Ajouter un film
+    <% end %>
+  </div>
+<% end %>

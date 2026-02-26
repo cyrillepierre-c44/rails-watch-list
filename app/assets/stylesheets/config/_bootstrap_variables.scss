@@ -1,4 +1,4 @@
-// This is where you override default Bootstrap variables
+// This is where you override default Bootstrap variables for Dark Theme
 // 1. Find all Bootstrap variables that you can override at the end of each component's documentation under the `Sass variables` anchor
 // e.g. here are the ones you can override for the navbar https://getbootstrap.com/docs/5.3/components/navbar/#sass-variables
 // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
@@ -7,22 +7,59 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
-$body-bg:                $light-gray;
+$body-bg:                $dark-bg;
 $font-size-base:         1rem;
 
-// Colors
-$body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+// Colors - Dark Theme
+$body-color:             $text-primary;
+$primary:               $primary;
+$secondary:             $secondary;
+$success:               $success;
+$info:                  $secondary;
+$danger:                $danger;
+$warning:               $warning;
+
+// Dark theme colors
+$dark:                  $dark-bg;
+$light:                 $text-primary;
+
+// Component colors
+$card-bg:               $card-bg;
+$border-color:          rgba(255, 255, 255, 0.1);
 
 // Buttons & inputs' radius
-$border-radius-sm:            .0625rem;
-$border-radius:               .125rem;
-$border-radius-lg:            .25rem;
-$border-radius-xl:            .5rem;
-$border-radius-xxl:           1rem;
+$border-radius-sm:            .5rem;
+$border-radius:               .75rem;
+$border-radius-lg:            1rem;
+$border-radius-xl:            1.25rem;
+$border-radius-xxl:           1.5rem;
+
+// Button variables
+$btn-padding-y:         .75rem;
+$btn-padding-x:         1.5rem;
+$btn-font-weight:        600;
+
+// Form variables
+$input-bg:                    $surface;
+$input-color:                 $text-primary;
+$input-border-color:          rgba(255, 255, 255, 0.1);
+$input-focus-border-color:    $primary;
+$input-focus-box-shadow:      0 0 0 3px rgba(108, 99, 255, 0.2);
+$input-placeholder-color:     $text-muted;
+$input-label-color:           $text-secondary;
+
+// Navbar
+$navbar-dark-color:           $text-secondary;
+$navbar-dark-hover-color:     $text-primary;
+$navbar-dark-active-color:    $text-primary;
+
+// Card
+$card-border-color:            rgba(255, 255, 255, 0.05);
+$card-cap-bg:                  transparent;
+
+// Box shadows
+$box-shadow:                  0 4px 6px rgba(0, 0, 0, 0.3);
+$box-shadow-sm:               0 2px 4px rgba(0, 0, 0, 0.2);
+$box-shadow-lg:               0 10px 25px rgba(0, 0, 0, 0.4);
 
 // Override other variables below!
